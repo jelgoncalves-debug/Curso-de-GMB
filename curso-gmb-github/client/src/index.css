@@ -1,0 +1,269 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  /* CORES PRINCIPAIS - LARANJA VIBRANTE */
+  --primary: #FF6B35; /* LARANJA FORTE - Para botões */
+  --primary-foreground: #FFFFFF;
+  
+  /* Secondary: Azul Google */
+  --secondary: #4285F4; /* Azul Google */
+  --secondary-foreground: #FFFFFF;
+  
+  /* Accent: Verde Google */
+  --accent: #34A853; /* Verde Google */
+  --accent-foreground: #FFFFFF;
+  
+  /* Destructive: Vermelho Google */
+  --destructive: #EA4335; /* Vermelho Google */
+  --destructive-foreground: #FFFFFF;
+  
+  /* Background e textos */
+  --background: #F8F9FA; /* Cinza clarinho - NÃO BRANCO! */
+  --foreground: #1A1A1A; /* Texto escuro */
+  
+  /* Cards com fundo branco */
+  --card: #FFFFFF;
+  --card-foreground: #1A1A1A;
+  
+  /* Popover */
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1A1A;
+  
+  /* Muted - Cinza médio */
+  --muted: #E8EAED;
+  --muted-foreground: #5F6368;
+  
+  /* Borders */
+  --border: #DADCE0;
+  --input: #DADCE0;
+  --ring: #FF6B35;
+  
+  /* Charts - Cores do Google */
+  --chart-1: #4285F4; /* Blue */
+  --chart-2: #EA4335; /* Red */
+  --chart-3: #FBBC04; /* Yellow */
+  --chart-4: #34A853; /* Green */
+  --chart-5: #9C27B0; /* Purple */
+  
+  /* Sidebar */
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #1A1A1A;
+  --sidebar-primary: #FF6B35;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #E8EAED;
+  --sidebar-accent-foreground: #1A1A1A;
+  --sidebar-border: #DADCE0;
+  --sidebar-ring: #FF6B35;
+  
+  --radius: 0.75rem;
+}
+
+.dark {
+  --primary: #FF8C5A;
+  --primary-foreground: #FFFFFF;
+  --sidebar-primary: #FF8C5A;
+  --sidebar-primary-foreground: #FFFFFF;
+  --background: #1A1A1A;
+  --foreground: #F8F9FA;
+  --card: #2D2D2D;
+  --card-foreground: #F8F9FA;
+  --popover: #2D2D2D;
+  --popover-foreground: #F8F9FA;
+  --secondary: #5A9FFF;
+  --secondary-foreground: #FFFFFF;
+  --muted: #3D3D3D;
+  --muted-foreground: #B0B0B0;
+  --accent: #5BC67A;
+  --accent-foreground: #FFFFFF;
+  --destructive: #FF6B5A;
+  --destructive-foreground: #FFFFFF;
+  --border: #3D3D3D;
+  --input: #3D3D3D;
+  --ring: #FF8C5A;
+  --chart-1: #5A9FFF;
+  --chart-2: #FF6B5A;
+  --chart-3: #FFD15A;
+  --chart-4: #5BC67A;
+  --chart-5: #B55AFF;
+  --sidebar: #2D2D2D;
+  --sidebar-foreground: #F8F9FA;
+  --sidebar-accent: #3D3D3D;
+  --sidebar-accent-foreground: #F8F9FA;
+  --sidebar-border: #3D3D3D;
+  --sidebar-ring: #FF8C5A;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+  
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+@layer utilities {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* GRADIENTES VIBRANTES */
+  .gradient-google {
+    background: linear-gradient(135deg, 
+      #4285F4 0%,   /* Blue */
+      #EA4335 33%,  /* Red */
+      #FBBC04 66%,  /* Yellow */
+      #34A853 100%  /* Green */
+    );
+  }
+
+  .gradient-hero {
+    background: linear-gradient(135deg, 
+      #E3F2FD 0%,   /* Azul clarinho */
+      #FFF3E0 50%,  /* Laranja clarinho */
+      #F8F9FA 100%  /* Cinza clarinho */
+    );
+  }
+  
+  .bg-gradient-blue {
+    background: linear-gradient(135deg, #4285F4 0%, #1967D2 100%);
+  }
+  
+  .bg-gradient-green {
+    background: linear-gradient(135deg, #34A853 0%, #0F9D58 100%);
+  }
+  
+  .bg-gradient-yellow {
+    background: linear-gradient(135deg, #FBBC04 0%, #F9AB00 100%);
+  }
+  
+  .bg-gradient-red {
+    background: linear-gradient(135deg, #EA4335 0%, #D93025 100%);
+  }
+  
+  .bg-gradient-orange {
+    background: linear-gradient(135deg, #FF6B35 0%, #FF8C5A 100%);
+  }
+  
+  /* FUNDOS COLORIDOS PARA SEÇÕES */
+  .bg-blue-light {
+    background-color: #E3F2FD;
+  }
+  
+  .bg-orange-light {
+    background-color: #FFF3E0;
+  }
+  
+  .bg-green-light {
+    background-color: #E8F5E9;
+  }
+  
+  .bg-yellow-light {
+    background-color: #FFFDE7;
+  }
+  
+  /* Sombras */
+  .shadow-google {
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.15);
+  }
+  
+  .shadow-google-lg {
+    box-shadow: 0 8px 24px rgba(255, 107, 53, 0.25);
+  }
+  
+  .hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(255, 107, 53, 0.3);
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+}
+
